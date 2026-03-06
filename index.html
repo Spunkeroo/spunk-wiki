@@ -87,31 +87,32 @@ footer{background:var(--card2);border-top:1px solid var(--border);padding:40px 2
   <h1>The Internet's Most <span class="grad">Based Wiki</span></h1>
   <p>Everything crypto, Web3, NFTs, Bitcoin, DeFi, and meme culture — explained simply. No jargon. No paywall.</p>
   <div class="search-bar">
-    <input type="text" id="wiki-search" placeholder="Search any crypto term..." oninput="filterTopics(this.value)">
-    <button>Search</button>
+    <input type="text" id="wiki-search" placeholder="Search any crypto term..." oninput="filterTopics(this.value)" onkeydown="if(event.key==='Enter')filterTopics(this.value)">
+    <button onclick="filterTopics(document.getElementById('wiki-search').value)">Search</button>
   </div>
 </section>
 
 <section class="section" id="topics">
   <div class="section-title">🔥 Most Searched Topics</div>
   <div class="section-sub">Click any topic to learn more</div>
+  <div id="search-no-results" style="display:none;color:var(--muted);font-size:0.95rem;padding:24px 0;">No results found. Try a different term.</div>
   <div class="topics-grid" id="topics-grid">
-    <div class="topic-card"><div class="topic-icon">₿</div><div class="topic-name">Bitcoin</div><div class="topic-desc">The original cryptocurrency. Digital gold. Fixed supply of 21 million coins.</div><span class="topic-tag">Layer 1</span></div>
-    <div class="topic-card"><div class="topic-icon">⟠</div><div class="topic-name">Ethereum</div><div class="topic-desc">Smart contract platform powering DeFi, NFTs, and thousands of dApps.</div><span class="topic-tag">Layer 1</span></div>
-    <div class="topic-card"><div class="topic-icon">◎</div><div class="topic-name">Solana</div><div class="topic-desc">Ultra-fast blockchain. Home to meme coins, NFTs, and DeFi protocols.</div><span class="topic-tag">Layer 1</span></div>
-    <div class="topic-card"><div class="topic-icon">🟧</div><div class="topic-name">Bitcoin Ordinals</div><div class="topic-desc">NFTs inscribed directly on the Bitcoin blockchain. Native Bitcoin collectibles.</div><span class="topic-tag">Bitcoin</span></div>
-    <div class="topic-card"><div class="topic-icon">🪄</div><div class="topic-name">Runes Protocol</div><div class="topic-desc">Fungible tokens on Bitcoin. SPUNK•BET is a Rune. Created by Casey Rodarmor.</div><span class="topic-tag">Bitcoin</span></div>
-    <div class="topic-card"><div class="topic-icon">🖼️</div><div class="topic-name">NFTs</div><div class="topic-desc">Non-fungible tokens. Unique digital assets with provable ownership on-chain.</div><span class="topic-tag">Web3</span></div>
-    <div class="topic-card"><div class="topic-icon">🏦</div><div class="topic-name">DeFi</div><div class="topic-desc">Decentralized Finance. Banking without banks. Lend, borrow, and earn on-chain.</div><span class="topic-tag">Web3</span></div>
-    <div class="topic-card"><div class="topic-icon">🐕</div><div class="topic-name">Meme Coins</div><div class="topic-desc">Community-driven tokens. DOGE, SHIB, PEPE, WIF — culture is the utility.</div><span class="topic-tag">Culture</span></div>
-    <div class="topic-card"><div class="topic-icon">📊</div><div class="topic-name">Prediction Markets</div><div class="topic-desc">Bet on real-world events with crypto. Kalshi, Polymarket, Predict.Horse.</div><span class="topic-tag">Finance</span></div>
-    <div class="topic-card"><div class="topic-icon">🏛️</div><div class="topic-name">DAOs</div><div class="topic-desc">Decentralized Autonomous Organizations. Communities that govern by voting.</div><span class="topic-tag">Governance</span></div>
-    <div class="topic-card"><div class="topic-icon">👛</div><div class="topic-name">Crypto Wallets</div><div class="topic-desc">Software or hardware that stores your private keys and signs transactions.</div><span class="topic-tag">Security</span></div>
-    <div class="topic-card"><div class="topic-icon">💧</div><div class="topic-name">Staking</div><div class="topic-desc">Lock crypto to earn yield. Validators on proof-of-stake chains earn rewards.</div><span class="topic-tag">Earning</span></div>
-    <div class="topic-card"><div class="topic-icon">⚡</div><div class="topic-name">Lightning Network</div><div class="topic-desc">Bitcoin Layer 2 for instant, low-fee payments. Built on payment channels.</div><span class="topic-tag">Bitcoin</span></div>
-    <div class="topic-card"><div class="topic-icon">🌉</div><div class="topic-name">Cross-Chain Bridges</div><div class="topic-desc">Move assets between blockchains. ETH to SOL, BTC to ETH, and more.</div><span class="topic-tag">Infrastructure</span></div>
-    <div class="topic-card"><div class="topic-icon">🤖</div><div class="topic-name">AI + Web3</div><div class="topic-desc">AI agents managing crypto wallets. On-chain AI models and data marketplaces.</div><span class="topic-tag">Future</span></div>
-    <div class="topic-card"><div class="topic-icon">🔐</div><div class="topic-name">Private Keys</div><div class="topic-desc">The password that controls your crypto. Lose it = lose everything. Never share it.</div><span class="topic-tag">Security</span></div>
+    <a href="https://en.wikipedia.org/wiki/Bitcoin" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">₿</div><div class="topic-name">Bitcoin</div><div class="topic-desc">The original cryptocurrency. Digital gold. Fixed supply of 21 million coins.</div><span class="topic-tag">Layer 1</span></a>
+    <a href="https://en.wikipedia.org/wiki/Ethereum" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">⟠</div><div class="topic-name">Ethereum</div><div class="topic-desc">Smart contract platform powering DeFi, NFTs, and thousands of dApps.</div><span class="topic-tag">Layer 1</span></a>
+    <a href="https://en.wikipedia.org/wiki/Solana_(blockchain_platform)" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">◎</div><div class="topic-name">Solana</div><div class="topic-desc">Ultra-fast blockchain. Home to meme coins, NFTs, and DeFi protocols.</div><span class="topic-tag">Layer 1</span></a>
+    <a href="https://en.wikipedia.org/wiki/Bitcoin_Ordinals" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">🟧</div><div class="topic-name">Bitcoin Ordinals</div><div class="topic-desc">NFTs inscribed directly on the Bitcoin blockchain. Native Bitcoin collectibles.</div><span class="topic-tag">Bitcoin</span></a>
+    <a href="https://en.wikipedia.org/wiki/Runes_(Bitcoin)" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">🪄</div><div class="topic-name">Runes Protocol</div><div class="topic-desc">Fungible tokens on Bitcoin. SPUNK•BET is a Rune. Created by Casey Rodarmor.</div><span class="topic-tag">Bitcoin</span></a>
+    <a href="https://en.wikipedia.org/wiki/Non-fungible_token" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">🖼️</div><div class="topic-name">NFTs</div><div class="topic-desc">Non-fungible tokens. Unique digital assets with provable ownership on-chain.</div><span class="topic-tag">Web3</span></a>
+    <a href="https://en.wikipedia.org/wiki/Decentralized_finance" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">🏦</div><div class="topic-name">DeFi</div><div class="topic-desc">Decentralized Finance. Banking without banks. Lend, borrow, and earn on-chain.</div><span class="topic-tag">Web3</span></a>
+    <a href="https://en.wikipedia.org/wiki/Meme_coin" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">🐕</div><div class="topic-name">Meme Coins</div><div class="topic-desc">Community-driven tokens. DOGE, SHIB, PEPE, WIF — culture is the utility.</div><span class="topic-tag">Culture</span></a>
+    <a href="https://en.wikipedia.org/wiki/Prediction_market" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">📊</div><div class="topic-name">Prediction Markets</div><div class="topic-desc">Bet on real-world events with crypto. Kalshi, Polymarket, Predict.Horse.</div><span class="topic-tag">Finance</span></a>
+    <a href="https://en.wikipedia.org/wiki/Decentralized_autonomous_organization" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">🏛️</div><div class="topic-name">DAOs</div><div class="topic-desc">Decentralized Autonomous Organizations. Communities that govern by voting.</div><span class="topic-tag">Governance</span></a>
+    <a href="https://en.wikipedia.org/wiki/Cryptocurrency_wallet" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">👛</div><div class="topic-name">Crypto Wallets</div><div class="topic-desc">Software or hardware that stores your private keys and signs transactions.</div><span class="topic-tag">Security</span></a>
+    <a href="https://en.wikipedia.org/wiki/Proof_of_stake" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">💧</div><div class="topic-name">Staking</div><div class="topic-desc">Lock crypto to earn yield. Validators on proof-of-stake chains earn rewards.</div><span class="topic-tag">Earning</span></a>
+    <a href="https://en.wikipedia.org/wiki/Lightning_Network" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">⚡</div><div class="topic-name">Lightning Network</div><div class="topic-desc">Bitcoin Layer 2 for instant, low-fee payments. Built on payment channels.</div><span class="topic-tag">Bitcoin</span></a>
+    <a href="https://en.wikipedia.org/wiki/Blockchain_bridge" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">🌉</div><div class="topic-name">Cross-Chain Bridges</div><div class="topic-desc">Move assets between blockchains. ETH to SOL, BTC to ETH, and more.</div><span class="topic-tag">Infrastructure</span></a>
+    <a href="https://en.wikipedia.org/wiki/Generative_artificial_intelligence" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">🤖</div><div class="topic-name">AI + Web3</div><div class="topic-desc">AI agents managing crypto wallets. On-chain AI models and data marketplaces.</div><span class="topic-tag">Future</span></a>
+    <a href="https://en.wikipedia.org/wiki/Public-key_cryptography" target="_blank" rel="noopener" class="topic-card"><div class="topic-icon">🔐</div><div class="topic-name">Private Keys</div><div class="topic-desc">The password that controls your crypto. Lose it = lose everything. Never share it.</div><span class="topic-tag">Security</span></a>
   </div>
 </section>
 
@@ -220,10 +221,15 @@ window.closeTip=function(){document.getElementById('tip-modal').classList.remove
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeTip()});
 function filterTopics(q){
   q=q.trim().toLowerCase();
+  let visible=0;
   document.querySelectorAll('.topic-card').forEach(c=>{
     const text=c.textContent.toLowerCase();
-    c.style.display=(!q||text.includes(q))?'':'none';
+    const show=!q||text.includes(q);
+    c.style.display=show?'':'none';
+    if(show)visible++;
   });
+  const nr=document.getElementById('search-no-results');
+  if(nr)nr.style.display=(q&&visible===0)?'block':'none';
 }
 (function(){
   if(window._vtrInit)return;window._vtrInit=true;
